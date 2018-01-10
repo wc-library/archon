@@ -53,8 +53,7 @@ if($_ARCHON->Security->Session->User->PhoneExtension)
 }
 $strPhone = $_REQUEST['fromphone'] ? encode($_REQUEST['fromphone'], ENCODE_HTML) : $strPhone;
 
-$in_referer = $_REQUEST['referer'] ? $_REQUEST['referer'] : $_REQUEST['HTTP_REFERER'];
-
+$in_referer = $_REQUEST['referer'] ? urlencode($_REQUEST['referer']) : urlencode($_REQUEST['HTTP_REFERER']);
 
 $repository = $objDigitalContent->getRepository();
 $repositoryid = $repository->ID;
